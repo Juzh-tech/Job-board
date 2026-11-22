@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/*
+ * Palette TEST — bleu nuit / bordeaux / doré / ivoire
+ * Si le rendu ne plaît pas : remettre l’ancien bloc @theme (voir git / commentaire bas).
+ *
+ * Règles retenues (filtrées du brief) :
+ *   - fond ivoire, cartes blanches (lisibilité)
+ *   - navy = structure / texte
+ *   - bordeaux = actions fortes (Postuler) + badge Nouveau — avec parcimonie
+ *   - doré = mise en avant (salaire, focus, CTA inscription) — jamais texte long sur doré
+ */
+
+@theme {
+  --color-fond: #f5f0e6;
+  --color-surface: #ffffff;
+  --color-encre: #0b1f3a;
+  --color-muet: #6b6570;
+  --color-ligne: #e4ddd0;
+  --color-marque: #0b1f3a;
+  --color-marque-hover: #16325c;
+  --color-lien: #0b1f3a;
+  --color-ok: #0b1f3a;
+  /* Erreurs / refus : bordeaux (cohérent palette, toujours lisible) */
+  --color-refus: #7b2d3e;
+  /* Accents TEST */
+  --color-action: #7b2d3e;
+  --color-action-hover: #5f2330;
+  --color-dore: #c9a227;
+  --color-dore-hover: #a8861c;
+  --color-ivoire: #f5f0e6;
+}
+
+@theme inline {
+  --font-sans: var(--font-texte);
+}
+
+:root {
+  /* Mobile : header un peu plus bas ; footer plus haut (liens sur 2 lignes) */
+  --h-entete: 3.5rem;
+  --h-pied: 4.25rem;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --h-entete: 4rem;
+    --h-pied: 2.75rem;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--color-fond);
+  color: var(--color-encre);
+  font-family: var(--font-sans), "Segoe UI", sans-serif;
+}
+
+@keyframes fiche-entreprise-entree {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fiche-entreprise-entree {
+  animation: fiche-entreprise-entree 0.55s ease-out both;
+}
+
+.fiche-entreprise-bloc {
+  animation: fiche-entreprise-entree 0.65s ease-out 0.12s both;
+}
+
+/*
+ * Ancienne palette (rollback rapide) :
+ * --color-fond: #f4f7fb;
+ * --color-surface: #ffffff;
+ * --color-encre: #0b1f3a;
+ * --color-muet: #64748b;
+ * --color-ligne: #e2e8f0;
+ * --color-marque: #0b1f3a;
+ * --color-marque-hover: #16325c;
+ * --color-lien: #0b1f3a;
+ * --color-ok: #0b1f3a;
+ * --color-refus: #b42318;
+ */
